@@ -174,6 +174,13 @@ class Model_data extends CI_model
         return $this->db->get('laporan')->result_array(); //select * FROM my table//
     }
 
+    /*public function laporan()
+    {
+        $bc = $this->db->query(
+        select 
+        ifnull((SELECT sum(jumlah from (laporan WHERE ((Month(tgl)=1 )
+    }*/
+
     public function laporan_search()
     {
         /*$tgl_awal = $this->input->post('tanggal_awal');

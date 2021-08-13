@@ -15,6 +15,7 @@ class Admin extends CI_Controller
 		$data['profil'] = $this->Model_data->getAllProfile();
 		$data['catatan'] = $this->Model_data->getAllCatatan();
 
+
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar', $data);
 		$this->load->view('backend/template/sidebar', $data);
@@ -23,22 +24,34 @@ class Admin extends CI_Controller
 		$this->load->view('backend/template/js', $data);
 	}
 
-	public function inde()
+	/*public function inde()
 	{
 		$data['judul'] = 'Dashboard';
 
-		$data['laporan'] = $this->Model_data->getAlllaporan();
-		$data['hasil'] = $this->Model_data->getAllChart();
+		//foreach($this->m_chart->laporan()result_array() as $ row)
 		//var_dump($data['hasil']);
 		//die;
-
+		{
+			$data['grafifk'][]=(float)$row['Januari'];
+			$data['grafifk'][]=(float)$row['Februari'];
+			$data['grafifk'][]=(float)$row['Maret'];
+			$data['grafifk'][]=(float)$row['April'];
+			$data['grafifk'][]=(float)$row['Mei'];
+			$data['grafifk'][]=(float)$row['Juni'];
+			$data['grafifk'][]=(float)$row['Juli'];
+			$data['grafifk'][]=(float)$row['Agustus'];
+			$data['grafifk'][]=(float)$row['September'];
+			$data['grafifk'][]=(float)$row['Oktober'];
+			$data['grafifk'][]=(float)$row['November'];
+			$data['grafifk'][]=(float)$row['Desember']
+		}
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar', $data);
 		$this->load->view('backend/template/sidebar', $data);
 		$this->load->view('backend/admin/chart2', $data);
 		$this->load->view('backend/template/footer', $data);
 		$this->load->view('backend/template/js', $data);
-	}
+	}*/
 
 	public function Agenda()
 	{

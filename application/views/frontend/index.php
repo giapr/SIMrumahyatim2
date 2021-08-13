@@ -44,10 +44,6 @@
             </div>
         </div>
     <?php endforeach ?>
-    <footer>
-        <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-        <a href="<?php echo base_url(); ?>/assets_user/#portfolio" class="button large scrolly">See some of my recent work</a>
-    </footer>
     </div>
 </article>
 
@@ -69,60 +65,27 @@
                 </div>
             <?php endforeach ?>
         </div>
-        <footer>
-            <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-            <a href="<?php echo base_url(); ?>/assets_user/#contact" class="button large scrolly">Get in touch with me</a>
-        </footer>
+
     </div>
 </article>
 
 <!-- Contact -->
 <article id="contact" class="wrapper style4">
     <div class="container medium">
-        <header>
-            <h2>Have me make stuff for you.</h2>
-            <p>Ornare nulla proin odio consequat sapien vestibulum ipsum.</p>
-        </header>
-        <div class="row">
-            <div class="col-12">
-                <form method="post" action="#">
-                    <div class="row">
-                        <div class="col-6 col-12-small">
-                            <input type="text" name="name" id="name" placeholder="Name" />
-                        </div>
-                        <div class="col-6 col-12-small">
-                            <input type="text" name="email" id="email" placeholder="Email" />
-                        </div>
-                        <div class="col-12">
-                            <input type="text" name="subject" id="subject" placeholder="Subject" />
-                        </div>
-                        <div class="col-12">
-                            <textarea name="message" id="message" placeholder="Message"></textarea>
-                        </div>
-                        <div class="col-12">
-                            <ul class="actions">
-                                <li><input type="submit" value="Send Message" /></li>
-                                <li><input type="reset" value="Clear Form" class="alt" /></li>
-                            </ul>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-12">
-                <hr />
-                <h3>Find me on ...</h3>
-                <ul class="social">
-                    <li><a href="<?php echo base_url(); ?>/assets_user/#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="<?php echo base_url(); ?>/assets_user/#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+        <div class="col-12">
+            <hr />
+            <h3>Find me on ...</h3>
+            <ul class="social">
+                <li><a href="<?php echo base_url(); ?>/assets_user/#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="<?php echo base_url(); ?>/assets_user/#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 
-                    <li><a href="<?php echo base_url(); ?>/assets_user/#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="<?php echo base_url(); ?>/assets_user/#" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
-                    <li><a href="<?php echo base_url(); ?>/assets_user/#" class="icon brands fa-blogger"><span class="label">Blogger</span></a></li>
+                <li><a href="<?php echo base_url(); ?>/assets_user/#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="<?php echo base_url(); ?>/assets_user/#" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+                <li><a href="<?php echo base_url(); ?>/assets_user/#" class="icon brands fa-blogger"><span class="label">Blogger</span></a></li>
 
 
-                </ul>
-                <hr />
-            </div>
+            </ul>
+            <hr />
         </div>
         <footer>
             <ul id="copyright">

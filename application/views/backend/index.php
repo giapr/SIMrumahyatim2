@@ -109,7 +109,7 @@
                 <div class="card">
                   <h5 class="card-header">FOTO PROFILE</h5>
                   <div class="card-body">
-                    <p class="card-text"><?= $a['misi'] ?>
+
                   </div>
                 </div>
                 <div class="card">
@@ -158,83 +158,66 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-chart-pie mr-1"></i>
-                  Laporan Kas
+                  Laporan Pemasukan
                 </h3>
-                <div class="card-tools">
-                  <ul class="nav nav-pills ml-auto">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="<?php echo base_url(); ?>/assets/#revenue-chart" data-toggle="tab">Area</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="<?php echo base_url(); ?>/assets/#sales-chart" data-toggle="tab">Donut</a>
-                    </li>
-                  </ul>
-                </div>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <div class="tab-content p-0">
-                  <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
-                    <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
-                  </div>
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                  </div>
-                </div>
-              </div><!-- /.card-body -->
-            </div>
+                <?php
+                $this->db->select('tanggal,nominal_masuk');
+                $dataLaporanChart = $this->db->get('tbl_pemasukan')->result();
+                foreach ($dataLaporanChart as $k => $v) {
+                  $arrlap[] = ['label' => $v->tanggal, 'y' => $v->nominal_masuk];
+                }
 
-          </section>
-          <!-- right col -->
+
+                ?>
+
+                <!-- Main content -->
+
+
+                <script type="text/javascript">
+                  window.onload = function() {
+
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                      theme: "light2", // "light2", "dark1", "dark2"
+                      animationEnabled: false, // change to true		
+                      title: {
+                        text: "Laporan Pemasukan"
+                      },
+                      data: [{
+                        // Change type to "bar", "area", "spline", "pie",etc.
+                        type: "line",
+
+                        dataPoints: <?= json_encode($arrlap, JSON_NUMERIC_CHECK); ?>
+
+                      }]
+
+                    });
+                    chart.render();
+
+                  }
+                </script>
+                </head>
+
+                <body>
+                  <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+                </body>
+              </div>
+            </div><!-- /.card-body -->
         </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-
-    <?php
-    $this->db->select('tanggal,nominal_masuk');
-    $dataLaporanChart = $this->db->get('tbl_pemasukan')->result();
-    foreach ($dataLaporanChart as $k => $v) {
-      $arrlap[] = ['label' => $v->tanggal, 'y' => $v->nominal_masuk];
-    }
 
 
-    ?>
-
-    <!-- Main content -->
-
-
-    <script type="text/javascript">
-      window.onload = function() {
-
-        var chart = new CanvasJS.Chart("chartContainer", {
-          theme: "light2", // "light2", "dark1", "dark2"
-          animationEnabled: false, // change to true		
-          title: {
-            text: "Basic Column Chart"
-          },
-          data: [{
-            // Change type to "bar", "area", "spline", "pie",etc.
-            type: "column",
-
-            dataPoints: <?= json_encode($arrlap, JSON_NUMERIC_CHECK); ?>
-
-          }]
-
-        });
-        chart.render();
-
-      }
-    </script>
-    </head>
-
-    <body>
-      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
-    </body>
+    <!-- right col -->
   </div>
-  <!-- /.content-wrapper -->
+  <!-- /.row (main row) -->
+</div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+
+<!-- /.content-wrapper -->
 
 
 
