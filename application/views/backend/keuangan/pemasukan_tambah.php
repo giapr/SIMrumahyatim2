@@ -17,9 +17,7 @@
             <div class="row mt-6">
                 <div class="col-md-4 col md-ofset-4">
                     <?php echo form_open_multipart('keuangan/tambahDataPemasukan'); ?>
-                    <div class="form-group">
-                        <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addNewDonatur">Tambah donatur</a>
-                    </div>
+
 
                     <div class="form-group">
                         <label>Nama Donatur*</label>

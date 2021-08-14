@@ -2,6 +2,15 @@
 
 class Model_data extends CI_model
 {
+
+
+
+    public function getAllStatistik()
+    {
+        $sql = "SELECT count(*) as Nama_anak from tbl_anakyatim";
+        $result = $this->db->query($sql);
+        return $result->row()->Nama_anak;
+    }
     //INDEX//
     //profile//
     public function getAllProfile()
@@ -26,6 +35,13 @@ class Model_data extends CI_model
     }
 
     //ANAK YATIM
+    public function getAllJumlahDataAnakYatim()
+    {
+        $sql = "SELECT count(*) as Nama_anak from tbl_anakyatim";
+        $result = $this->db->query($sql);
+        return $result->row()->Nama_anak;
+    }
+
     public function getAllAnakyatim()
     {
         return $this->db->get('tbl_anakyatim')->result_array(); //select * FROM my table//
@@ -82,6 +98,14 @@ class Model_data extends CI_model
     }
 
     //Duafa//
+
+    public function getAllJumlahDataDuafa()
+    {
+        $sql = "SELECT count(*) as nama from tbl_duafa";
+        $result = $this->db->query($sql);
+        return $result->row()->nama;
+    }
+
     public function getAllduafa()
     {
         return $this->db->get('tbl_duafa')->result_array(); //select * FROM my table//
@@ -122,6 +146,13 @@ class Model_data extends CI_model
 
 
     //DONATUR//
+
+    public function getAllJumlahDataDonatur()
+    {
+        $sql = "SELECT count(*) as nama from tbl_donatur";
+        $result = $this->db->query($sql);
+        return $result->row()->nama;
+    }
     public function getAllDonatur()
     {
         return $this->db->get('tbl_donatur')->result_array(); //select * FROM my table//
@@ -169,6 +200,21 @@ class Model_data extends CI_model
 
     //KEUANGAN//
     //laporan
+
+    public function getAllJumlahDatapemasukan()
+    {
+        $sql = "SELECT sum('nominal_masuk') as nominal_masuk from tbl_pemasukan";
+        $result = $this->db->query($sql);
+        return $result->row()->nominal_masuk;
+    }
+
+    public function getAllJumlahDatapengeluaran()
+    {
+        $sql = "SELECT sum('nominal_keluar') as nominal_keluar from tbl_pengeluaran";
+        $result = $this->db->query($sql);
+        return $result->row()->nominal_keluar;
+    }
+
     public function getAlllaporan()
     {
         return $this->db->get('laporan')->result_array(); //select * FROM my table//

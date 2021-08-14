@@ -14,6 +14,11 @@ class Admin extends CI_Controller
 
 		$data['profil'] = $this->Model_data->getAllProfile();
 		$data['catatan'] = $this->Model_data->getAllCatatan();
+		$data['Anak_yatim'] = $this->Model_data->getAllJumlahDataAnakYatim();
+		$data['Donatur'] = $this->Model_data->getAllJumlahDataDonatur();
+		$data['Duafa'] = $this->Model_data->getAllJumlahDataDuafa();
+		$data['masuk'] = $this->Model_data->getAllJumlahDatapemasukan();
+		$data['keluar'] = $this->Model_data->getAllJumlahDatapengeluaran();
 
 
 		$this->load->view('backend/template/meta', $data);
