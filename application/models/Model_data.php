@@ -203,14 +203,14 @@ class Model_data extends CI_model
 
     public function getAllJumlahDatapemasukan()
     {
-        $sql = "SELECT sum('nominal_masuk') as nominal_masuk from tbl_pemasukan";
+        $sql = "SELECT sum(nominal_masuk) as nominal_masuk from tbl_pemasukan";
         $result = $this->db->query($sql);
         return $result->row()->nominal_masuk;
     }
 
     public function getAllJumlahDatapengeluaran()
     {
-        $sql = "SELECT sum('nominal_keluar') as nominal_keluar from tbl_pengeluaran";
+        $sql = "SELECT sum(nominal_keluar) as nominal_keluar from tbl_pengeluaran";
         $result = $this->db->query($sql);
         return $result->row()->nominal_keluar;
     }

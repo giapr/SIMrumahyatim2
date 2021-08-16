@@ -20,7 +20,6 @@ class Admin extends CI_Controller
 		$data['masuk'] = $this->Model_data->getAllJumlahDatapemasukan();
 		$data['keluar'] = $this->Model_data->getAllJumlahDatapengeluaran();
 
-
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar', $data);
 		$this->load->view('backend/template/sidebar', $data);

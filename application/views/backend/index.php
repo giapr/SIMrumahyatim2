@@ -81,8 +81,10 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-
-                <h3><?= $masuk ?></h3>
+                <?php $jumlah = 0;
+                $jumlah = $masuk - $keluar;
+                ?>
+                <h3>Rp <?= number_format($jumlah, 0, ',', '.') ?></h3>
 
                 <p>Jumlah saldo keuangan</p>
               </div>
