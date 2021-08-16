@@ -220,12 +220,28 @@ class Model_data extends CI_model
         return $this->db->get('laporan')->result_array(); //select * FROM my table//
     }
 
-    /*public function laporan()
+    public function laporan_grafik()
     {
-        $bc = $this->db->query(
-        select 
-        ifnull((SELECT sum(jumlah from (laporan WHERE ((Month(tgl)=1 )
-    }*/
+        $sql =
+            "SELECT((SELECT count(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=1)AND (YEAR(tanggal)=2021))),0) as `Januari`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=2)AND (YEAR(tanggal)=2021))),0) AS `Februari`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=3)AND (YEAR(tanggal)=2021))),0) AS `Maret`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=4)AND (YEAR(tanggal)=2021))),0) AS `April`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=5)AND (YEAR(tanggal)=2021))),0) AS `Mei`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=6)AND (YEAR(tanggal)=2021))),0) AS `Juni`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=7)AND (YEAR(tanggal)=2021))),0) AS `Juli`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=8)AND (YEAR(tanggal)=2021))),0) AS `Agustus`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=9)AND (YEAR(tanggal)=2021))),0) AS `September`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=10)AND (YEAR(tanggal)=2021))),0) AS `Oktober`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=11)AND (YEAR(tanggal)=2021))),0) AS `November`,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=12)AND (YEAR(tanggal)=2021))),0) AS `Desember`
+        from laporan GROUP BY YEAR(tanggal)";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+
+
 
     public function laporan_search()
     {
@@ -274,7 +290,7 @@ class Model_data extends CI_model
         $data = array(
             'nama' => $nama,
             'nominal' => $nominal,
-           /* 'id_donatur' => $this->input->post('id'),
+        /* 'id_donatur' => $this->input->post('id'),
             'tanggal' => $tanggal,
             'bukti' => $bukti
         );

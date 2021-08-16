@@ -8,7 +8,7 @@ class Admin extends CI_Controller
 		$this->load->model('Model_data');
 	}
 
-	public function index()
+	/*public function index()
 	{
 		$data['title'] = 'Dashboard';
 
@@ -26,28 +26,26 @@ class Admin extends CI_Controller
 		$this->load->view('backend/index.php', $data);
 		$this->load->view('backend/template/footer', $data);
 		$this->load->view('backend/template/js', $data);
-	}
+	}*/
 
-	/*public function inde()
+	public function index()
 	{
 		$data['judul'] = 'Dashboard';
 
-		//foreach($this->m_chart->laporan()result_array() as $ row)
-		//var_dump($data['hasil']);
-		//die;
-		{
-			$data['grafifk'][]=(float)$row['Januari'];
-			$data['grafifk'][]=(float)$row['Februari'];
-			$data['grafifk'][]=(float)$row['Maret'];
-			$data['grafifk'][]=(float)$row['April'];
-			$data['grafifk'][]=(float)$row['Mei'];
-			$data['grafifk'][]=(float)$row['Juni'];
-			$data['grafifk'][]=(float)$row['Juli'];
-			$data['grafifk'][]=(float)$row['Agustus'];
-			$data['grafifk'][]=(float)$row['September'];
-			$data['grafifk'][]=(float)$row['Oktober'];
-			$data['grafifk'][]=(float)$row['November'];
-			$data['grafifk'][]=(float)$row['Desember']
+		$data['keluar'] = $this->Model_data->laporan_grafik();
+		foreach ($this->model_data->laporan_grafik()->result_array() as $row) {
+			$data['grafifk'][] = (float)$row['Januari'];
+			$data['grafifk'][] = (float)$row['Februari'];
+			$data['grafifk'][] = (float)$row['Maret'];
+			$data['grafifk'][] = (float)$row['April'];
+			$data['grafifk'][] = (float)$row['Mei'];
+			$data['grafifk'][] = (float)$row['Juni'];
+			$data['grafifk'][] = (float)$row['Juli'];
+			$data['grafifk'][] = (float)$row['Agustus'];
+			$data['grafifk'][] = (float)$row['September'];
+			$data['grafifk'][] = (float)$row['Oktober'];
+			$data['grafifk'][] = (float)$row['November'];
+			$data['grafifk'][] = (float)$row['Desember'];
 		}
 		$this->load->view('backend/template/meta', $data);
 		$this->load->view('backend/template/navbar', $data);
@@ -55,7 +53,7 @@ class Admin extends CI_Controller
 		$this->load->view('backend/admin/chart2', $data);
 		$this->load->view('backend/template/footer', $data);
 		$this->load->view('backend/template/js', $data);
-	}*/
+	}
 
 	public function Agenda()
 	{
