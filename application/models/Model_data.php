@@ -21,13 +21,14 @@ class Model_data extends CI_model
     public function editProfil()
     {
         $data = [
+            "id" => $this->input->post('id'),
             "latar_belakang" => $this->input->post('latar_belakang'),
             "program_kerja" => $this->input->post('program_kerja'),
             "tujuan" => $this->input->post('tujuan'),
             "visi" => $this->input->post('visi'),
             "misi" => $this->input->post('misi')
-
         ];
+
         $this->db->where('id', $this->input->post('id'));
         $this->db->update('profil', $data);
     }

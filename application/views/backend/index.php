@@ -145,11 +145,10 @@
                     <p class="card-text"><?= $a['misi'] ?>
                   </div>
                 </div>
-              <?php endforeach ?>
-              <div class="card-footer text-muted">
-                <a href="<?= base_url() ?>Admin/editProfil/<?= $a['id'] ?>" class="btn btn-primary float-right"><i class="far fa-edit"> edit data profile</i></a>
-
-              </div>
+                <div class="card-footer text-muted">
+                  <a href="<?= base_url() ?>Admin/editProfil/<?= $a['id'] ?>" class="btn btn-primary float-right"><i class="far fa-edit"> edit data profile</i></a>
+                <?php endforeach ?>
+                </div>
             </div>
 
             <!-- TO DO List -->

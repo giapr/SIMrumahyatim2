@@ -21,11 +21,13 @@
         foreach ($profil as $a) :
         ?>
             <?php echo form_open_multipart('Admin/editProfil/' . $a['id']); ?>
+
             <div class="row mb-2">
                 <div class="col-sm-12">
 
                     <div class="card">
                         <div class="card-body">
+                            <input type="hidden" name="id" value="<?= $a['id']; ?>">
                             <p class="card-text"><label>Latar Belakang*</label>
                                 <textarea name="latar_belakang" class="form-control"><?= $a['latar_belakang']; ?></textarea>
                                 <?= form_error('latar_belakang', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -49,11 +51,12 @@
                         </div>
                         <div class="card-footer text-muted">
                         </div>
+
+                        <div class="form-group">
+                            <button type="" class="btn btn-secondary btn-flat">Batal</button>
+                            <button type="submit" class="btn btn-success btn-flat">Simpan</button>
+                        </div>
                     <?php endforeach ?>
-                    <div class="form-group">
-                        <button type="" class="btn btn-secondary btn-flat">Batal</button>
-                        <button type="submit" class="btn btn-success btn-flat">Simpan</button>
-                    </div>
                     </div>
 
 
