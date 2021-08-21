@@ -147,7 +147,8 @@
                 </div>
               <?php endforeach ?>
               <div class="card-footer text-muted">
-                <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> edit data profile</button>
+                <a href="<?= base_url() ?>Admin/editProfil/<?= $a['id'] ?>" class="btn btn-primary float-right"><i class="far fa-edit"> edit data profile</i></a>
+
               </div>
             </div>
 
@@ -215,22 +216,3 @@
     <!-- right col -->
   </div>
   <!-- /.row (main row) -->
-</div><!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-
-
-<!-- /.content-wrapper -->
-
-
-
-</div>
-<!-- /.col -->
-</div>
-<!-- /.row -->
-</div>
-<!-- Control sidebar content goes here -->
-</aside>
-<!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->

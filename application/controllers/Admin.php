@@ -8,7 +8,7 @@ class Admin extends CI_Controller
 		$this->load->model('Model_data');
 	}
 
-	/*public function index()
+	public function index()
 	{
 		$data['title'] = 'Dashboard';
 
@@ -26,9 +26,35 @@ class Admin extends CI_Controller
 		$this->load->view('backend/index.php', $data);
 		$this->load->view('backend/template/footer', $data);
 		$this->load->view('backend/template/js', $data);
-	}*/
+	}
 
-	public function index()
+	public function editProfil()
+	{
+		$data['judul'] = 'Edit Profil';
+
+		$data['profil'] = $this->Model_data->getAllProfile();
+
+
+		$this->form_validation->set_rules('latar_belakang', 'Latar Belakang', 'trim|required', array('required' => '%s tidak boleh kosong !'));
+		$this->form_validation->set_rules('program_kerja', 'Program Kerja', 'trim|required', array('required' => '%s tidak boleh kosong !'));
+		$this->form_validation->set_rules('tujuan', 'Tujuan', 'trim|required', array('required' => '%s tidak boleh kosong !'));
+		$this->form_validation->set_rules('visi', 'Visi', 'trim|required', array('required' => '%s tidak boleh kosong !'));
+		$this->form_validation->set_rules('misi', 'Misi', 'trim|required', array('required' => '%s tidak boleh kosong !'));
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('backend/template/meta', $data);
+			$this->load->view('backend/template/navbar', $data);
+			$this->load->view('backend/template/sidebar', $data);
+			$this->load->view('backend/admin/editprofil', $data);
+			$this->load->view('backend/template/footer', $data);
+			$this->load->view('backend/template/js', $data);
+		} else {
+			$this->Model_data->editProfil();
+			redirect('admin');
+		}
+	}
+
+	public function inde()
 	{
 		$data['judul'] = 'Dashboard';
 

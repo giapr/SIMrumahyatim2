@@ -17,6 +17,20 @@ class Model_data extends CI_model
     {
         return $this->db->get('profil')->result_array(); //select * FROM my table//
     }
+
+    public function editProfil()
+    {
+        $data = [
+            "latar_belakang" => $this->input->post('latar_belakang'),
+            "program_kerja" => $this->input->post('program_kerja'),
+            "tujuan" => $this->input->post('tujuan'),
+            "visi" => $this->input->post('visi'),
+            "misi" => $this->input->post('misi')
+
+        ];
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update('profil', $data);
+    }
     //catatan
     public function getAllCatatan()
     {
@@ -220,25 +234,24 @@ class Model_data extends CI_model
         return $this->db->get('laporan')->result_array(); //select * FROM my table//
     }
 
-    public function laporan_grafik()
+    /*public function laporan_grafik()
     {
-        $sql =
-            "SELECT((SELECT count(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=1)AND (YEAR(tanggal)=2021))),0) as `Januari`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=2)AND (YEAR(tanggal)=2021))),0) AS `Februari`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=3)AND (YEAR(tanggal)=2021))),0) AS `Maret`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=4)AND (YEAR(tanggal)=2021))),0) AS `April`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=5)AND (YEAR(tanggal)=2021))),0) AS `Mei`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=6)AND (YEAR(tanggal)=2021))),0) AS `Juni`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=7)AND (YEAR(tanggal)=2021))),0) AS `Juli`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=8)AND (YEAR(tanggal)=2021))),0) AS `Agustus`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=9)AND (YEAR(tanggal)=2021))),0) AS `September`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=10)AND (YEAR(tanggal)=2021))),0) AS `Oktober`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=11)AND (YEAR(tanggal)=2021))),0) AS `November`,
-        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=12)AND (YEAR(tanggal)=2021))),0) AS `Desember`
+        $sql = "SELECT((SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=1)AND (YEAR(tanggal)=2021)),0) as Januari,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=2)AND (YEAR(tanggal)=2021)),0) AS Februari,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=3)AND (YEAR(tanggal)=2021)),0) AS Maret,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=4)AND (YEAR(tanggal)=2021)),0) AS April,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=5)AND (YEAR(tanggal)=2021)),0) AS Mei,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=6)AND (YEAR(tanggal)=2021)),0) AS Juni,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=7)AND (YEAR(tanggal)=2021)),0) AS Juli,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=8)AND (YEAR(tanggal)=2021)),0) AS Agustus,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=9)AND (YEAR(tanggal)=2021)),0) AS September,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=10)AND (YEAR(tanggal)=2021)),0) AS Oktober,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=11)AND (YEAR(tanggal)=2021)),0) AS November,
+        (SELECT sum(nominal_masuk) FROM (laporan)WHERE((Month(tanggal)=12)AND (YEAR(tanggal)=2021)),0)) AS Desember
         from laporan GROUP BY YEAR(tanggal)";
         $result = $this->db->query($sql);
         return $result;
-    }
+    }*/
 
 
 
