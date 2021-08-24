@@ -49,29 +49,43 @@
                                 <?= form_error('misi', '<small class="text-danger pl-3">', '</small>'); ?>
                             </p>
                         </div>
+
                         <div class="card-footer text-muted">
                         </div>
 
-                        <div class="form-group">
-                            <button type="" class="btn btn-secondary btn-flat">Batal</button>
-                            <button type="submit" class="btn btn-success btn-flat">Simpan</button>
+
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-4">
+                                    <label>Edit Foto profil*</label>
+                                    <div class="card" style="width: 22rem; height: 15rem;">
+                                        <div class="card-body">
+                                            <input type="file" name="foto" size="20">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="" class="btn btn-secondary btn-flat">Batal</button>
+                                <button type="submit" class="btn btn-success btn-flat">Simpan</button>
+                            </div>
+                        <?php endforeach ?>
                         </div>
-                    <?php endforeach ?>
+
+
                     </div>
-
-
                 </div>
+
+
+
+                <?php echo form_close(); ?>
+
+
             </div>
-
-
-
-            <?php echo form_close(); ?>
-
-
+            <!-- /.col -->
     </div>
-    <!-- /.col -->
-</div>
-<!-- /.row -->
+    <!-- /.row -->
 </div>
 <!-- /.container-fluid -->
 </section>

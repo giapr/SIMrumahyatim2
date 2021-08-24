@@ -20,18 +20,56 @@ class Model_data extends CI_model
 
     public function editProfil()
     {
-        $data = [
-            "id" => $this->input->post('id'),
-            "latar_belakang" => $this->input->post('latar_belakang'),
-            "program_kerja" => $this->input->post('program_kerja'),
-            "tujuan" => $this->input->post('tujuan'),
-            "visi" => $this->input->post('visi'),
-            "misi" => $this->input->post('misi')
-        ];
 
-        $this->db->where('id', $this->input->post('id'));
-        $this->db->update('profil', $data);
+        $config['upload_path']          = './assets/buktipemasukan';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 10000;
+        $config['max_width']            = 10000;
+        $config['max_height']           = 10000;
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if (!$this->upload->do_upload('foto')) {
+            echo "eror";
+        } else {
+
+            $foto = $this->upload->data();
+            $foto = $foto['file_name'];
+
+            $data = [
+                "id" => $this->input->post('id'),
+                "latar_belakang" => $this->input->post('latar_belakang'),
+                "program_kerja" => $this->input->post('program_kerja'),
+                "tujuan" => $this->input->post('tujuan'),
+                "visi" => $this->input->post('visi'),
+                "misi" => $this->input->post('misi'),
+                "foto" => $foto
+            ];
+
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('profil', $data);
+        }
     }
+    //ADMIN
+    public function getAllAdmin()
+    {
+        return $this->db->get('tbl_admin')->result_array(); //select * FROM my table//
+    }
+
+    public function tambahDataAdmin()
+    {
+        $data = [
+            "username" => $this->input->post('username'),
+            "alamat" => $this->input->post('alamat'),
+            "jabatan" => $this->input->post('jabatan'),
+            "password" => $this->input->post('password'),
+
+        ];
+        $this->db->insert('tbl_admin', $data);
+    }
+
+
+
     //catatan
     public function getAllCatatan()
     {

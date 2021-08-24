@@ -48,6 +48,14 @@
           </p>
         </a>
       </li>
+      <li class="nav-item">
+        <a href="<?php echo base_url(); ?>admin/data_admin" class="nav-link">
+          <i class="nav-icon fas fa-th"></i>
+          <p>
+            Data admin
+          </p>
+        </a>
+      </li>
       <li class="nav-header">Keuangan</li>
       <li class="nav-item">
         <a href="<?php echo base_url(); ?>keuangan/pemasukan" class="nav-link">

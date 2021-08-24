@@ -111,7 +111,11 @@
               ?>
                 <div class="card">
                   <h5 class="card-header">FOTO PROFILE</h5>
+                  <div class="card" style="width: 22rem;">
+                    <img src="<?= base_url('/assets/buktipemasukan/' . $a['foto']) ?>" class="card-img-top" alt="<?= $a['foto']; ?>">
+                  </div>
                   <div class="card-body">
+
 
                   </div>
                 </div>

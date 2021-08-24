@@ -12,7 +12,7 @@
                     <header>
                         <h1><strong>RUMAH YATIM</strong></h1>
                     </header>
-                    <p><?= $b['latar_belakang'] ?></p>
+                    <p></p>
                 </div>
         </div>
     </div>
